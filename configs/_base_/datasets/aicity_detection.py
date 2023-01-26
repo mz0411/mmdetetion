@@ -1,6 +1,6 @@
 # dataset settings
 dataset_type = 'Aic21Dataset'
-data_root = 'data/track1/'
+data_root = '/kaggle/input/track1/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
@@ -17,8 +17,8 @@ test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
         type='MultiScaleFlipAug',
-        img_scale=(1333, 800),
-        # img_scale=(2666, 1600),
+        #img_scale=(1333, 800),
+        img_scale=(2666, 1600),
         #img_scale=(5332, 3200),
         flip=False,
         transforms=[
@@ -32,7 +32,7 @@ test_pipeline = [
 ]
 data = dict(
     samples_per_gpu=2,
-    workers_per_gpu=2,
+    workers_per_gpu=1,
     train=dict(
         type=dataset_type,
         ann_file=data_root + 'annotations/train-val-cls1.json',
@@ -46,6 +46,6 @@ data = dict(
     test=dict(
         type=dataset_type,
         ann_file=data_root + 'annotations/test_all_cls1_only_imgs.json',
-        img_prefix=data_root + '/test_imgs',
+        img_prefix=data_root,
         pipeline=test_pipeline))
 evaluation = dict(interval=1, metric='bbox')
