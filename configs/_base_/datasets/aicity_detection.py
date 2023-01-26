@@ -17,8 +17,8 @@ test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
         type='MultiScaleFlipAug',
-        #img_scale=(1333, 800),
-        img_scale=(2666, 1600),
+        img_scale=(1333, 800),
+        # img_scale=(2666, 1600),
         #img_scale=(5332, 3200),
         flip=False,
         transforms=[
@@ -32,7 +32,7 @@ test_pipeline = [
 ]
 data = dict(
     samples_per_gpu=2,
-    workers_per_gpu=4,
+    workers_per_gpu=2,
     train=dict(
         type=dataset_type,
         ann_file=data_root + 'annotations/train-val-cls1.json',
