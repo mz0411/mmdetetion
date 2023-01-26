@@ -13,7 +13,7 @@ model = dict(
         type='SwinTransformer',
         embed_dims=96,
         depths=[2, 2, 18, 2],
-        num_heads=[4, 8, 16, 32],
+        num_heads=[3, 6, 12, 24],
         window_size=7,
         mlp_ratio=4,
         qkv_bias=True,
@@ -27,7 +27,7 @@ model = dict(
         convert_weights=True,
         init_cfg=dict(type='Pretrained', checkpoint=pretrained)),
     # neck=dict(in_channels=[96, 192, 384, 768]),
-    neck=dict(in_channels=[128, 256, 512, 1024]),
+    neck=dict(in_channels=[96, 192, 384, 768]),
 
         roi_head=dict(
         bbox_head=[
@@ -35,9 +35,9 @@ model = dict(
                 type='ConvFCBBoxHead',
                 num_shared_convs=4,
                 num_shared_fcs=1,
-                in_channels=256,
-                conv_out_channels=256,
-                fc_out_channels=1024,
+                in_channels=192,
+                conv_out_channels=192,
+                fc_out_channels=768,
                 roi_feat_size=7,
                 num_classes=1,
                 bbox_coder=dict(
@@ -54,9 +54,9 @@ model = dict(
                 type='ConvFCBBoxHead',
                 num_shared_convs=4,
                 num_shared_fcs=1,
-                in_channels=256,
-                conv_out_channels=256,
-                fc_out_channels=1024,
+                in_channels=192,
+                conv_out_channels=192,
+                fc_out_channels=768,
                 roi_feat_size=7,
                 num_classes=1,
                 bbox_coder=dict(
@@ -73,9 +73,9 @@ model = dict(
                 type='ConvFCBBoxHead',
                 num_shared_convs=4,
                 num_shared_fcs=1,
-                in_channels=256,
-                conv_out_channels=256,
-                fc_out_channels=1024,
+                in_channels=192,
+                conv_out_channels=192,
+                fc_out_channels=768,
                 roi_feat_size=7,
                 num_classes=1,
                 bbox_coder=dict(
