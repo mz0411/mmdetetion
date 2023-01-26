@@ -6,7 +6,7 @@ _base_ = [
 
 # pretrained = 'https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_small_patch4_window7_224.pth'  # noqa
 
-pretrained = "/kaggle/input/track1/pretrain_model/cascade_mask_rcnn_swin_base_patch4_window7.pth"
+pretrained = "/kaggle/input/track1/pretrain_model/pretrained/cascade_mask_rcnn_swin_base_patch4_window7.pth"
 
 
 model = dict(
