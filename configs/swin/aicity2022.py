@@ -5,9 +5,9 @@ _base_ = [
     '../_base_/schedules/schedule_1x.py', '../_base_/default_runtime.py'
 ]
 
-pretrained = 'https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_small_patch4_window7_224.pth'  # noqa
+# pretrained = 'https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_small_patch4_window7_224.pth'  # noqa
 
-# pretrained = "/kaggle/input/track1/pretrain_model/pretrained/cascade_mask_rcnn_swin_base_patch4_window7.pth"
+pretrained = "/kaggle/input/track1/pretrain_model/pretrained/cascade_mask_rcnn_swin_base_patch4_window7.pth"
 
 
 model = dict(
@@ -15,7 +15,7 @@ model = dict(
     backbone=dict(
         _delete_=True,
         type='SwinTransformer',
-        embed_dims=96,
+        embed_dims=128,
         depths=[2, 2, 18, 2],
         num_heads=[4, 8, 16, 32],
         window_size=7,
