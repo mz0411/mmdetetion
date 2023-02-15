@@ -4,7 +4,7 @@ _base_ = [
     '../_base_/schedules/schedule_1x.py', '../_base_/default_runtime.py'
 ]
 
-pretrained = 'https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_small_patch4_window7_224.pth'  # noqa
+load_from  = './swin_small_patch4_window7_224.pth'  # noqa
 
 fp16 = dict(loss_scale=dict(init_scale=512))
 
