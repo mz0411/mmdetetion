@@ -11,7 +11,7 @@ model = dict(
     backbone=dict(
         _delete_=True,
         type='SwinTransformer',
-        embed_dims=128,
+        embed_dims=96,
         depths=[2, 2, 6, 2],
         num_heads=[3, 6, 12, 24],
         window_size=7,
@@ -26,8 +26,8 @@ model = dict(
         with_cp=False,
         convert_weights=True,
         init_cfg=dict(type='Pretrained', checkpoint=pretrained)),
-    # neck=dict(in_channels=[96, 192, 384, 768])
-    neck=dict(in_channels=[128, 256, 512, 1024]),
+    neck=dict(in_channels=[96, 192, 384, 768]),
+    # neck=dict(in_channels=[128, 256, 512, 1024]),
     roi_head=dict(
         bbox_head=[
             dict(
