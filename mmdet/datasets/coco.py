@@ -36,7 +36,7 @@ class CocoDataset(CustomDataset):
             #    'mouse', 'remote', 'keyboard', 'cell phone', 'microwave',
             #    'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock',
             #    'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush')
-    CLASSES = ('car')
+    CLASSES = ('car',)
 
     PALETTE = [ (165, 42, 42)]
 
