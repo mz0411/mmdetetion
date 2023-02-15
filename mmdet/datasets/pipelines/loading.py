@@ -307,7 +307,7 @@ class LoadAnnotations:
             rle = maskUtils.merge(rles)
         elif isinstance(mask_ann['counts'], list):
             # uncompressed RLE
-            print(list)
+            print(list,mask_ann['counts'])
             rle = maskUtils.frPyObjects(mask_ann, img_h, img_w)
         else:
             # rle
