@@ -299,7 +299,7 @@ class LoadAnnotations:
         Returns:
             numpy.ndarray: The decode bitmap mask of shape (img_h, img_w).
         """
-        print(list,mask_ann['counts'])
+        print(list,mask_ann)
 
         if isinstance(mask_ann, list):
             # polygon -- a single object might consist of multiple parts
