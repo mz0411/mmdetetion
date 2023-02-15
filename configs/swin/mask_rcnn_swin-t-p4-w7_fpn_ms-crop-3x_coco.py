@@ -26,16 +26,17 @@ model = dict(
         with_cp=False,
         convert_weights=True,
         init_cfg=dict(type='Pretrained', checkpoint=pretrained)),
-    neck=dict(in_channels=[96, 192, 384, 768]),
+    neck=dict(in_channels=[128, 256, 512, 1024]),
+    # neck=dict(in_channels=[96, 192, 384, 768]),
     roi_head=dict(
     bbox_head=[
         dict(
             type='ConvFCBBoxHead',
             num_shared_convs=1,
             num_shared_fcs=1,
-            in_channels=192,
-            conv_out_channels=192,
-            fc_out_channels=768,
+            in_channels=256,
+            conv_out_channels=256,
+            fc_out_channels=1024,
             roi_feat_size=7,
             num_classes=1,
             bbox_coder=dict(
@@ -50,11 +51,11 @@ model = dict(
             loss_bbox=dict(type='GIoULoss', loss_weight=10.0)),
         dict(
             type='ConvFCBBoxHead',
-           num_shared_convs=1,
+            num_shared_convs=4,
             num_shared_fcs=1,
-            in_channels=192,
-            conv_out_channels=192,
-            fc_out_channels=768,
+            in_channels=256,
+            conv_out_channels=256,
+            fc_out_channels=1024,
             roi_feat_size=7,
             num_classes=1,
             bbox_coder=dict(
@@ -69,11 +70,11 @@ model = dict(
             loss_bbox=dict(type='GIoULoss', loss_weight=10.0)),
         dict(
             type='ConvFCBBoxHead',
-           num_shared_convs=1,
+            num_shared_convs=4,
             num_shared_fcs=1,
-            in_channels=192,
-            conv_out_channels=192,
-            fc_out_channels=768,
+            in_channels=256,
+            conv_out_channels=256,
+            fc_out_channels=1024,
             roi_feat_size=7,
             num_classes=1,
             bbox_coder=dict(
