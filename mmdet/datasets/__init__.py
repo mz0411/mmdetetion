@@ -1,7 +1,6 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 from .builder import DATASETS, PIPELINES, build_dataloader, build_dataset
 from .cityscapes import CityscapesDataset
-from .aicity21 import Aic21Dataset
 from .coco import CocoDataset
 from .coco_occluded import OccludedSeparatedCocoDataset
 from .coco_panoptic import CocoPanopticDataset
@@ -18,6 +17,7 @@ from .utils import (NumClassCheckHook, get_loading_pipeline,
 from .voc import VOCDataset
 from .wider_face import WIDERFaceDataset
 from .xml_style import XMLDataset
+from .aicity21 import Aic21Dataset
 
 __all__ = [
     'CustomDataset', 'XMLDataset', 'CocoDataset', 'DeepFashionDataset',

@@ -5,6 +5,9 @@ import mmcv
 def wider_face_classes():
     return ['face']
 
+def aicity_classes():
+    return ['car']
+
 
 def voc_classes():
     return [

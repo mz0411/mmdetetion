@@ -6,7 +6,7 @@ _base_ = [
 
 pretrained = 'https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_small_patch4_window7_224.pth'  # noqa
 
-# fp16 = dict(loss_scale=dict(init_scale=512))
+fp16 = dict(loss_scale=dict(init_scale=512))
 
 
 model = dict(
