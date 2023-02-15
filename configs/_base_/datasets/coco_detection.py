@@ -1,6 +1,7 @@
 # dataset settings
 dataset_type = 'CocoDataset'
-data_root = 'data/coco/'
+# data_root = 'data/coco/'
+data_root = '/kaggle/input/track1/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
@@ -33,17 +34,17 @@ data = dict(
     workers_per_gpu=2,
     train=dict(
         type=dataset_type,
-        ann_file=data_root + 'annotations/instances_train2017.json',
-        img_prefix=data_root + 'train2017/',
+        ann_file=data_root + 'annotations/train-val-cls1.json',
+        img_prefix=data_root,
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
-        ann_file=data_root + 'annotations/instances_val2017.json',
-        img_prefix=data_root + 'val2017/',
+        ann_file=data_root + 'annotations/val_s05.json',
+        img_prefix=data_root,
         pipeline=test_pipeline),
     test=dict(
         type=dataset_type,
-        ann_file=data_root + 'annotations/instances_val2017.json',
-        img_prefix=data_root + 'val2017/',
+        ann_file=data_root + 'annotations/test_all_cls1_only_imgs.json',
+        img_prefix=data_root,
         pipeline=test_pipeline))
 evaluation = dict(interval=1, metric='bbox')
