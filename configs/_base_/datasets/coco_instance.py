@@ -44,7 +44,7 @@ data = dict(
         pipeline=test_pipeline),
     test=dict(
         type=dataset_type,
-        ann_file=data_root + 'annotations/test_all_cls1_only_imgs.json',
+        ann_file=data_root + 'annotations/val_s05.json',
         img_prefix=data_root,
         pipeline=test_pipeline))
 evaluation = dict(interval=1, metric='bbox')
