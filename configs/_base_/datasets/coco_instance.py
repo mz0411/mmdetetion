@@ -47,6 +47,6 @@ data = dict(
         ann_file=data_root + 'annotations/val_s05.json',
         img_prefix=data_root,
         pipeline=test_pipeline))
-evaluation = dict(interval=1, metric='bbox')
+# evaluation = dict(interval=1, metric='bbox')
 
-# evaluation = dict(metric=['bbox', 'segm'])
+evaluation = dict(interval=1, metric=['bbox', 'segm'])
