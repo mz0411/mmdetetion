@@ -26,8 +26,8 @@ model = dict(
         with_cp=False,
         convert_weights=True,
         init_cfg=dict(type='Pretrained', checkpoint=pretrained)),
-    neck=dict(in_channels=[128, 256, 512, 1024]),
-    # neck=dict(in_channels=[96, 192, 384, 768]),
+    # neck=dict(in_channels=[128, 256, 512, 1024]),
+    neck=dict(in_channels=[96, 192, 384, 768]),
     roi_head=dict(
     bbox_head=[
         dict(
