@@ -1,8 +1,8 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 from .builder import DATASETS, PIPELINES, build_dataloader, build_dataset
 from .cityscapes import CityscapesDataset
-from .coco import Aic21Dataset
-from .aicity21 import CocoDataset
+from .aicity21 import Aic21Dataset
+from .coco import CocoDataset
 from .coco_occluded import OccludedSeparatedCocoDataset
 from .coco_panoptic import CocoPanopticDataset
 from .custom import CustomDataset
