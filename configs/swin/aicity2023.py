@@ -6,13 +6,16 @@ _base_ = [
 
 pretrained = 'https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_small_patch4_window7_224.pth'  # noqa
 
+fp16 = dict(loss_scale=dict(init_scale=512))
+
+
 model = dict(
     type='MaskRCNN',
     backbone=dict(
         _delete_=True,
         type='SwinTransformer',
         embed_dims=96,
-        depths=[2, 2, 18, 2],
+        depths=[2, 2, 6, 2],
         num_heads=[3, 6, 12, 24],
         window_size=7,
         mlp_ratio=4,
@@ -74,28 +77,6 @@ train_pipeline = [
     dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels', 'gt_masks']),
 ]
 data = dict(train=dict(pipeline=train_pipeline))
-
-roi_head=dict(
-    type='StandardRoIHead',
-    bbox_roi_extractor=dict(
-        type='SingleRoIExtractor',
-        roi_layer=dict(type='RoIAlign', output_size=7, sampling_ratio=0),
-        out_channels=256,
-        featmap_strides=[4, 8, 16, 32]),
-    bbox_head=dict(
-        type='Shared2FCBBoxHead',
-        in_channels=256,
-        fc_out_channels=1024,
-        roi_feat_size=7,
-        num_classes=1,
-        bbox_coder=dict(
-            type='DeltaXYWHBBoxCoder',
-            target_means=[0., 0., 0., 0.],
-            target_stds=[0.1, 0.1, 0.2, 0.2]),
-        reg_class_agnostic=False,
-        loss_cls=dict(
-            type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0),
-        loss_bbox=dict(type='L1Loss', loss_weight=1.0)))
 
 optimizer = dict(
     _delete_=True,
