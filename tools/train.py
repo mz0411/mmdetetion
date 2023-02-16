@@ -233,10 +233,6 @@ def main():
             CLASSES=datasets[0].CLASSES)
     # add an attribute for visualization convenience
     model.CLASSES = datasets[0].CLASSES
-
-    for h in logger.hooks:
-        if isinstance(h, WandbLoggerHook):
-            h.with_segmentation = False
     train_detector(
         model,
         datasets,
