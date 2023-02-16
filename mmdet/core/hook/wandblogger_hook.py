@@ -410,7 +410,8 @@ class MMDetWandbHook(WandbLoggerHook):
             if isinstance(result, tuple):
                 bbox_result, segm_result = result
                 if isinstance(segm_result, tuple):
-                    segm_result = segm_result[0]  # ms rcnn
+                    # segm_result = segm_result[0]  # ms rcnn
+                    bbox_result, segm_result = result, None #禁用mask
             else:
                 bbox_result, segm_result = result, None
             assert len(bbox_result) == len(self.class_id_to_label)
