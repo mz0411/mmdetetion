@@ -5,14 +5,18 @@ log_config = dict(
     hooks=[
         dict(type='TextLoggerHook'),
         # dict(type='TensorboardLoggerHook')
-        dict(type='MMDetWandbHook',
-         init_kwargs={'project': 'Swin-Transformer'},
-         interval=10,
-         log_checkpoint=True,
-         log_checkpoint_metadata=True,
-         num_eval_images=100,
-         bbox_score_thr=0.3)
-        # dict(type='TensorboardLoggerHook') #生成Tensorboard 日志
+         dict(type='MMDetWandbHook',
+                     init_kwargs={
+                         'entity': "mrcat",
+                         'project': "Swin-Transformer"
+                     },
+                     interval=10,
+                     log_checkpoint=True,
+                     log_checkpoint_metadata=True,
+                     num_eval_images=100,
+                     bbox_score_thr=0.3)
+
+        dict(type='TensorboardLoggerHook') #生成Tensorboard 日志
     ])
 # yapf:enable
 custom_hooks = [dict(type='NumClassCheckHook')]
